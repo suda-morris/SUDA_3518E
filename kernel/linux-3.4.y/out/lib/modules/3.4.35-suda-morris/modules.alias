@@ -1,0 +1,13 @@
+# Aliases extracted from modules themselves.
+alias nls_tis-620 nls_cp874
+alias nls_sjis nls_cp932
+alias nls_euc-kr nls_cp949
+alias nls_big5 nls_cp950
+alias nls_iso8859-8 nls_cp1255
+alias aes aes_generic
+alias usb:v1044p8005d*dc*dsc*dp*ic*isc*ip* zd1201
+alias usb:v1044p8004d*dc*dsc*dp*ic*isc*ip* zd1201
+alias usb:v0DB0p6823d*dc*dsc*dp*ic*isc*ip* zd1201
+alias usb:v050Dp6051d*dc*dsc*dp*ic*isc*ip* zd1201
+alias usb:v0ACEp1201d*dc*dsc*dp*ic*isc*ip* zd1201
+alias usb:v0586p3400d*dc*dsc*dp*ic*isc*ip* zd1201

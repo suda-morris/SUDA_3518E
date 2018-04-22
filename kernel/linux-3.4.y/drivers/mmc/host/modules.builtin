@@ -1,0 +1,4 @@
+kernel/drivers/mmc/host/himciv200/himci.ko
+kernel/drivers/mmc/host/himciv200/himci_dbg.ko
+kernel/drivers/mmc/host/himciv200/himci_acl.ko
+kernel/drivers/mmc/host/himciv200/himci_proc.ko

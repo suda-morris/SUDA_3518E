@@ -125,8 +125,6 @@ exit 0
 
 
 
-
-
 ### 编译UBoot（版本2010.06）
 
 ```bash
@@ -157,10 +155,69 @@ go 0x82000000#从内存指定位置运行程序
 ```bash
 export ARCH=arm 
 export CROSS_COMPILE=arm-hisiv300-linux-uclibcgnueabi-
+make hi3518ev200_full_defconfig
+make menuconfig
 make uImage
+cp ./arch/arm/boot/uImage ./uImage
 ```
 
 
 
+### 制作根文件系统
 
+```bash
+./mkfs.jffs2 -d ./rootfs -l -e 0x10000 -o rootfs-ov9732.jffs2
+```
+
+
+
+### 烧写
+
+> SPI Flash地址空间分配:
+>
+>     |     512k   |      1792K    |      14080K           |
+>     |------------|---------------|-----------------------|
+>     |    boot    |     kernel    |     rootfs            |
+> 板子上电时按住`crtl+c`，进入uboot命令行终端
+
+1. 烧写内核
+
+   ```bash
+   set serverip 192.168.1.199;#设置tftp服务器端的IP地址
+   mw.b 0x82000000 0xFF 0x1C0000;
+   tftp 0x82000000 uImage;
+   sf probe 0;
+   sf erase 0x80000 0x1C0000;
+   sf write 0x82000000 0x80000 0x1C0000
+   ```
+
+2. 烧写文件系统
+
+   ```bash
+   mw.b 0x82000000 0xFF 0xdc0000;
+   tftp 0x82000000 rootfs-ov9732.jffs2;
+   sf probe 0;
+   sf erase 0x240000 0xdc0000;
+   sf write 0x82000000 0x240000 0xdc0000
+   ```
+
+3. 配置uboot启动参数和启动命令
+
+   ```bash
+   setenv bootargs 'mem=32M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:512K(boot),1792K(kernel),14080K(rootfs)';
+   setenv bootcmd 'sf probe 0;sf read 0x82000000 0x80000 0x1C0000;bootm 0x82000000';
+   saveenv;
+   reset
+   ```
+
+
+
+### tf卡操作
+
+```bash
+mkdir /sdcard#建立一个tf卡的挂载目录 
+mount -t vfat /dev/mmcblk0p1 /sdcard#挂载
+umount /sdcard#卸载
+mkfs.vfat /dev/mmcblk0p1#格式化
+```
 

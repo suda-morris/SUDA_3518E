@@ -219,7 +219,7 @@ $(LIB): $(obj).depend $(OBJS)
 bootss2:
 ifdef CONFIG_SNAPSHOT_BOOT
 	rm bootss2.a -rf
-ifeq ($(CROSS_COMPILE),arm-hisiv300-linux-)
+ifeq ($(CROSS_COMPILE),arm-hisiv300-linux-uclibcgnueabi-)
 ifdef CONFIG_HI3518EV200
 	cp cmd_bootss2_v300_hi3518ev200 bootss2.a -rf
 else

@@ -1,0 +1,2 @@
+kernel/drivers/net/ethernet/hieth-sf/hieth.ko
+kernel/drivers/net/phy/libphy.ko

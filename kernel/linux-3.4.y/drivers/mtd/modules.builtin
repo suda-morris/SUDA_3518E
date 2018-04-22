@@ -1,0 +1,15 @@
+kernel/drivers/mtd/mtd.ko
+kernel/drivers/mtd/mtdchar.ko
+kernel/drivers/mtd/mtd_blkdevs.ko
+kernel/drivers/mtd/mtdblock.ko
+kernel/drivers/mtd/romblock.ko
+kernel/drivers/mtd/chips/chipreg.ko
+kernel/drivers/mtd/devices/block2mtd.ko
+kernel/drivers/mtd/devices/hifmc100/hifmc100.ko
+kernel/drivers/mtd/devices/hifmc100/hifmc100_os.ko
+kernel/drivers/mtd/nand/nand.ko
+kernel/drivers/mtd/nand/nand_ecc.ko
+kernel/drivers/mtd/nand/nand_ids.ko
+kernel/drivers/mtd/nand/hifmc100/hifmc100.ko
+kernel/drivers/mtd/nand/hifmc100/hifmc100_os.ko
+kernel/drivers/mtd/ubi/ubi.ko

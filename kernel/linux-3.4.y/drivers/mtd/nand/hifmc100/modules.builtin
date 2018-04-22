@@ -1,0 +1,2 @@
+kernel/drivers/mtd/nand/hifmc100/hifmc100.ko
+kernel/drivers/mtd/nand/hifmc100/hifmc100_os.ko

@@ -1,0 +1,3 @@
+kernel/drivers/spi/spidev.ko
+kernel/drivers/spi/hi_spidev_info.ko
+kernel/drivers/spi/hi_spi.ko
