@@ -216,7 +216,7 @@
  ------------------------------------------------------------------------*/
 
 #define CONFIG_VERSION_VARIABLE  1 /*used in common/main.c*/
-#define CONFIG_SYS_PROMPT  "hisilicon # "	/* Monitor Command Prompt */
+#define CONFIG_SYS_PROMPT  "suda-morris# "	/* Monitor Command Prompt */
 #define CONFIG_SYS_CBSIZE  1024            /* Console I/O Buffer Size  */
 #define CONFIG_SYS_PBSIZE  (CONFIG_SYS_CBSIZE + sizeof(CONFIG_SYS_PROMPT) + 16)
 
